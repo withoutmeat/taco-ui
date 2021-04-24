@@ -1,8 +1,8 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: "jit",
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  mode: 'jit',
+  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx,stories.js}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -24,7 +24,7 @@ module.exports = {
         // 'body-bg': colors.white,
         // 'body-color': colors.gray['900'],
         // 'body-text-align': 'none'
-      }
+      },
     },
   },
   variants: {

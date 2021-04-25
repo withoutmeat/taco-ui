@@ -1,9 +1,9 @@
 {
-  "name": "dopa-ui",
+  "name": "taco-ui",
   "version": "0.0.0",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "node ./scripts/build.js",
+    "build": "rm -rf dist & node ./scripts/build.js",
     "build-storybook": "build-storybook",
     "serve": "start-storybook -p 6006",
     "test:unit": "jest",

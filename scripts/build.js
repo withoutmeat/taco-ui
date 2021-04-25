@@ -13,45 +13,43 @@ const cwd = process.cwd()
 
 const componentNames = fs.readdirSync(path.resolve(cwd, 'src/components'))
 
-const entry = {}
+build(0)
 
-for (let i = 0; i < componentNames.length; i++) {
-  entry[componentNames[i]] = path.resolve(
-    cwd,
-    `src/components/${componentNames[i]}/index.ts`,
-  )
-}
+async function build(i) {
+  const name = componentNames[i]
 
-const inputOption = {
-  input: entry,
-  plugins: [
-    vuePlugin({
-      target: 'browser',
-    }),
-    typescript({
-      tsconfigOverride: {
-        compilerOptions: {
-          declaration: false,
+  if (!name) return
+
+  const inputOption = {
+    input: path.resolve(cwd, `src/components/${name}/index.ts`),
+    plugins: [
+      vuePlugin({
+        target: 'browser',
+      }),
+      typescript({
+        tsconfigOverride: {
+          compilerOptions: {
+            declaration: true,
+          },
+          exclude: ['node_modules', 'src/stories', 'src/tests'],
         },
-        exclude: ['node_modules', 'stories', 'tests'],
-      },
-      abortOnError: false,
-    }),
-  ],
-  external(id) {
-    return /^vue/.test(id) || deps.some((k) => new RegExp('^' + k).test(id))
-  },
-}
+        abortOnError: false,
+      }),
+    ],
+    external(id) {
+      return /^vue/.test(id) || deps.some((k) => new RegExp('^' + k).test(id))
+    },
+  }
 
-const outputOption = {
-  dir: 'dist',
-  format: 'es',
-}
-
-;(async function build() {
+  const outputOption = {
+    dir: `dist/${name}`,
+    format: 'es',
+  }
   const bundle = await rollup.rollup(inputOption)
 
   await bundle.write(outputOption)
 
-  console.log('done!!')
-})()
+  console.log(`${name} done!!`)
+
+  build(++i)
+}

@@ -1,5 +1,4 @@
-import { ButtonType } from '../components/Button.feature'
-import MyButton from '../components/Button.vue'
+import MyButton from '../components/Button/Button.vue'
 
 export default {
   title: 'Example/Button',
@@ -36,7 +35,7 @@ const Template = (args) => ({
 
 export const Primary = Template.bind({})
 Primary.args = {
-  color: ButtonType.Primary,
+  color: 'primary',
 }
 
 // export const Secondary = Template.bind({});

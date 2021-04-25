@@ -5,16 +5,20 @@ export default {
   title: 'Example/Button',
   component: MyButton,
   argTypes: {
-    type: {
-      options: [ButtonType.Primary, ButtonType.Default, ButtonType.Link],
-      control: {
-        type: 'select',
-      },
-    },
-    size: {
-      options: ['lg', 'sm'],
+    variant: {
+      options: ['contained', 'outlined', 'text'],
       control: { type: 'select' },
     },
+    color: {
+      options: ['default', 'primary', 'secondary', 'warning', 'danger'],
+      control: { type: 'select' },
+    },
+    size: {
+      options: ['large', 'medium', 'small'],
+      control: { type: 'select' },
+    },
+    block: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
     onClick: {},
   },
 }
@@ -32,7 +36,7 @@ const Template = (args) => ({
 
 export const Primary = Template.bind({})
 Primary.args = {
-  type: ButtonType.Primary,
+  color: ButtonType.Primary,
 }
 
 // export const Secondary = Template.bind({});

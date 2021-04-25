@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { ButtonSize, ButtonType } from '../components/Button.feature'
-import TButton from '../components/Button.vue'
+import TButton from '../components/Button/Button.vue'
 
 describe('Test Button', () => {
   it('Default slot', () => {
@@ -42,7 +41,7 @@ describe('Test Button', () => {
   it('Primary Button', () => {
     const wrapper = mount(TButton, {
       props: {
-        type: ButtonType.Primary,
+        type: 'primary',
       },
     })
 
@@ -62,7 +61,7 @@ describe('Test Button', () => {
   it('Link Button', () => {
     const wrapper = mount(TButton, {
       props: {
-        type: ButtonType.Link,
+        type: 'link',
         href: 'test',
       },
     })
@@ -81,7 +80,7 @@ describe('Test Button', () => {
   it('Text Button', () => {
     const wrapper = mount(TButton, {
       props: {
-        type: ButtonType.Text,
+        type: 'text',
       },
     })
 
@@ -93,7 +92,7 @@ describe('Test Button', () => {
   it('Large Button', () => {
     const wrapper = mount(TButton, {
       props: {
-        size: ButtonSize.Large,
+        size: 'large',
       },
     })
 
@@ -105,7 +104,7 @@ describe('Test Button', () => {
   it('Small Button', () => {
     const wrapper = mount(TButton, {
       props: {
-        size: ButtonSize.Small,
+        size: 'small',
       },
     })
 
@@ -131,7 +130,7 @@ describe('Test Button', () => {
 
     const primary = mount(TButton, {
       props: {
-        type: ButtonType.Primary,
+        type: 'primary',
         dangerLevel: 'warning',
       },
     })
@@ -164,7 +163,7 @@ describe('Test Button', () => {
 
     const primary = mount(TButton, {
       props: {
-        type: ButtonType.Primary,
+        type: 'primary',
         dangerLevel: 'danger',
       },
     })
@@ -183,7 +182,7 @@ describe('Test Button', () => {
     const wrapper = mount(TButton, {
       props: {
         disabled: true,
-        type: ButtonType.Primary,
+        type: 'primary',
       },
     })
 
@@ -200,7 +199,7 @@ describe('Test Button', () => {
     const linkDisableTButton = mount(TButton, {
       props: {
         disabled: true,
-        type: ButtonType.Link,
+        type: 'link',
       },
     })
 

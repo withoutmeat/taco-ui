@@ -1,15 +1,10 @@
 import { mount } from '@vue/test-utils'
-import { ButtonSize, ButtonType } from './Button.feature'
-import DButton from './Button.vue'
-// The component to test
-const MessageComponent = {
-  template: '<p>{{ msg }}</p>',
-  props: ['msg'],
-}
+import { ButtonSize, ButtonType } from '../components/Button.feature'
+import TButton from '../components/Button.vue'
 
 describe('Test Button', () => {
   it('Default slot', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       slots: {
         default: 'default slot',
       },
@@ -19,7 +14,7 @@ describe('Test Button', () => {
   })
 
   it('Default Button', () => {
-    const wrapper = mount(DButton)
+    const wrapper = mount(TButton)
 
     expect(wrapper.element.tagName).toBe('BUTTON')
 
@@ -45,7 +40,7 @@ describe('Test Button', () => {
   })
 
   it('Primary Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         type: ButtonType.Primary,
       },
@@ -65,7 +60,7 @@ describe('Test Button', () => {
   })
 
   it('Link Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         type: ButtonType.Link,
         href: 'test',
@@ -84,7 +79,7 @@ describe('Test Button', () => {
   })
 
   it('Text Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         type: ButtonType.Text,
       },
@@ -96,7 +91,7 @@ describe('Test Button', () => {
   })
 
   it('Large Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         size: ButtonSize.Large,
       },
@@ -108,7 +103,7 @@ describe('Test Button', () => {
   })
 
   it('Small Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         size: ButtonSize.Small,
       },
@@ -119,7 +114,7 @@ describe('Test Button', () => {
   })
 
   it('Warning Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         dangerLevel: 'warning',
       },
@@ -134,7 +129,7 @@ describe('Test Button', () => {
       expect(wrapper.classes()).toContain(cls)
     })
 
-    const primary = mount(DButton, {
+    const primary = mount(TButton, {
       props: {
         type: ButtonType.Primary,
         dangerLevel: 'warning',
@@ -152,7 +147,7 @@ describe('Test Button', () => {
   })
 
   it('Danger Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         dangerLevel: 'danger',
       },
@@ -167,7 +162,7 @@ describe('Test Button', () => {
       expect(wrapper.classes()).toContain(cls)
     })
 
-    const primary = mount(DButton, {
+    const primary = mount(TButton, {
       props: {
         type: ButtonType.Primary,
         dangerLevel: 'danger',
@@ -185,7 +180,7 @@ describe('Test Button', () => {
   })
 
   it('Disabled Button', () => {
-    const wrapper = mount(DButton, {
+    const wrapper = mount(TButton, {
       props: {
         disabled: true,
         type: ButtonType.Primary,
@@ -202,7 +197,7 @@ describe('Test Button', () => {
       expect(wrapper.classes()).toContain(cls)
     })
 
-    const linkDisabledButton = mount(DButton, {
+    const linkDisableTButton = mount(TButton, {
       props: {
         disabled: true,
         type: ButtonType.Link,
@@ -217,7 +212,7 @@ describe('Test Button', () => {
       'shadow-none',
       'bg-transparent',
     ].forEach((cls) => {
-      expect(linkDisabledButton.classes()).toContain(cls)
+      expect(linkDisableTButton.classes()).toContain(cls)
     })
   })
 })

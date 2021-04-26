@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "start-storybook -p 6006",
+    "test:unit": "jest",
     "build": "rm -rf dist & node ./scripts/build.js",
-    "build-storybook": "build-storybook",
-    "serve": "start-storybook -p 6006",
-    "test:unit": "jest"
+    "build:docs": "build-storybook -o ./docs",
+    "serve": "http-server ./docs"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.13.17",

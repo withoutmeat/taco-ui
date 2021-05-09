@@ -13,6 +13,7 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
@@ -22,6 +23,7 @@
     "@types/jest": "^26.0.22",
     "@vue/test-utils": "^2.0.0-rc.6",
     "autoprefixer": "^10.2.5",
+    "glob": "^7.1.7",
     "jest": "^26.6.3",
     "postcss": "^8.2.12",
     "prettier": "^2.2.1",

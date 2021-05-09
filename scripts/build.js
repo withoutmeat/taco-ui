@@ -50,6 +50,7 @@ async function build(name) {
             declaration: true,
           },
           exclude: ['node_modules', 'src/stories', 'src/tests'],
+          include: [name],
         },
         abortOnError: false,
       }),
@@ -67,7 +68,6 @@ async function build(name) {
     },
   }
 
-  const computedName = name.split('components')[1]
   const splitedName = name.split('/')
 
   const getPaths = (id) => {
@@ -92,8 +92,10 @@ async function build(name) {
     return id
   }
 
+  const relativePath = name.split('components')[1]
+
   const outputOption = {
-    file: `dist${computedName.replace(/vue|ts/, 'js')}`,
+    file: `dist${relativePath.replace(/vue|ts/, 'js')}`,
     format: 'es',
     paths: getPaths,
   }
